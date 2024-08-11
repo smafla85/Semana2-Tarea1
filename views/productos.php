@@ -66,7 +66,7 @@
                 e.preventDefault();
                 var formData = $(this).serialize();
                 var idProductos = $('#idProductos').val();
-                var url = idProductos ? '/sexto/proyectos/03MVC/controllers/productos.controller.php?op=actualizar' : '/sexto/proyectos/03MVC/controllers/productos.controller.php?op=insertar';
+                var url = idProductos ? '../controllers/productos.controller.php?op=actualizar' : '../controllers/productos.controller.php?op=insertar';
 
                 $.ajax({
                     url: url,
@@ -87,7 +87,7 @@
             // Función para cargar productos
             function cargarProductos() {
                 $.ajax({
-                    url: '/sexto/proyectos/03MVC/controllers/productos.controller.php?op=todos',
+                    url: '../controllers/productos.controller.php?op=todos',
                     type: 'GET',
                     success: function(response) {
                         var productos = JSON.parse(response);
@@ -114,7 +114,7 @@
             // Función para editar producto
             window.editarProducto = function(id) {
                 $.ajax({
-                    url: '/sexto/proyectos/03MVC/controllers/productos.controller.php?op=uno',
+                    url: '../controllers/productos.controller.php?op=uno',
                     type: 'POST',
                     data: { idProductos: id },
                     success: function(response) {
@@ -131,7 +131,7 @@
             window.eliminarProducto = function(id) {
                 if (confirm('¿Está seguro de eliminar este producto?')) {
                     $.ajax({
-                        url: '/sexto/proyectos/03MVC/controllers/productos.controller.php?op=eliminar',
+                        url: '../controllers/productos.controller.php?op=eliminar',
                         type: 'POST',
                         data: { idProductos: id },
                         success: function(response) {

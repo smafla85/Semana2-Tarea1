@@ -73,7 +73,7 @@
                 e.preventDefault();
                 var formData = $(this).serialize();
                 var idClientes = $('#idClientes').val();
-                var url = idClientes ? '/sexto/proyectos/03MVC/controllers/clientes.controller.php?op=actualizar' : '/sexto/proyectos/03MVC/controllers/clientes.controller.php?op=insertar';
+                var url = idClientes ? '../controllers/clientes.controller.php?op=actualizar' : '../controllers/clientes.controller.php?op=insertar';
 
                 $.ajax({
                     url: url,
@@ -94,7 +94,7 @@
             // Función para cargar clientes
             function cargarClientes() {
                 $.ajax({
-                    url: '/sexto/proyectos/03MVC/controllers/clientes.controller.php?op=todos',
+                    url: '../controllers/clientes.controller.php?op=todos',
                     type: 'GET',
                     success: function(response) {
                         var clientes = JSON.parse(response);
@@ -123,7 +123,7 @@
             // Función para editar cliente
             window.editarCliente = function(id) {
                 $.ajax({
-                    url: '/sexto/proyectos/03MVC/controllers/clientes.controller.php?op=uno',
+                    url: '../controllers/clientes.controller.php?op=uno',
                     type: 'POST',
                     data: { idClientes: id },
                     success: function(response) {
@@ -142,7 +142,7 @@
             window.eliminarCliente = function(id) {
                 if (confirm('¿Está seguro de eliminar este cliente?')) {
                     $.ajax({
-                        url: '/sexto/proyectos/03MVC/controllers/clientes.controller.php?op=eliminar',
+                        url: '../controllers/clientes.controller.php?op=eliminar',
                         type: 'POST',
                         data: { idClientes: id },
                         success: function(response) {

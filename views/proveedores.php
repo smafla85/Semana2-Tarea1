@@ -73,7 +73,7 @@
                 e.preventDefault();
                 var formData = $(this).serialize();
                 var idProveedores = $('#idProveedores').val();
-                var url = idProveedores ? '/sexto/proyectos/03MVC/controllers/proveedores.controller.php?op=actualizar' : '/sexto/proyectos/03MVC/controllers/proveedores.controller.php?op=insertar';
+                var url = idProveedores ? '../controllers/proveedores.controller.php?op=actualizar' : '../controllers/proveedores.controller.php?op=insertar';
 
                 $.ajax({
                     url: url,
@@ -94,7 +94,7 @@
             // Función para cargar proveedores
             function cargarProveedores() {
                 $.ajax({
-                    url: '/sexto/proyectos/03MVC/controllers/proveedores.controller.php?op=todos',
+                    url: '../controllers/proveedores.controller.php?op=todos',
                     type: 'GET',
                     success: function(response) {
                         var proveedores = JSON.parse(response);
@@ -123,7 +123,7 @@
             // Función para editar proveedor
             window.editarProveedor = function(id) {
                 $.ajax({
-                    url: '/sexto/proyectos/03MVC/controllers/proveedores.controller.php?op=uno',
+                    url: '../controllers/proveedores.controller.php?op=uno',
                     type: 'POST',
                     data: { idProveedores: id },
                     success: function(response) {
@@ -142,7 +142,7 @@
             window.eliminarProveedor = function(id) {
                 if (confirm('¿Está seguro de eliminar este proveedor?')) {
                     $.ajax({
-                        url: '/sexto/proyectos/03MVC/controllers/proveedores.controller.php?op=eliminar',
+                        url: '../controllers/proveedores.controller.php?op=eliminar',
                         type: 'POST',
                         data: { idProveedores: id },
                         success: function(response) {
